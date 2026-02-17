@@ -1,0 +1,143 @@
+import Container from "@/components/Container";
+import Link from "next/link";
+import { site, products } from "@/content/site";
+import ProductCard from "@/components/ProductCard";
+
+export default function HomePage() {
+  return (
+    <>
+      <section className="border-b border-black/10 bg-gradient-to-b from-black/[0.04] to-white">
+        <Container>
+          <div className="py-20 md:py-28">
+            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-xs text-black/70">
+              <span className="h-2 w-2 rounded-full bg-black/60" />
+              Serving Asian importers & distributors
+            </div>
+
+            <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
+              Premium seafood exports for Asian markets.
+            </h1>
+
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-black/70 md:text-lg">
+              {site.description}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+              >
+                Request a Quote
+              </Link>
+              <Link
+                href="/products"
+                className="rounded-full border border-black/15 bg-white px-6 py-3 text-sm font-medium text-black hover:bg-black/5"
+              >
+                Browse Products
+              </Link>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-2">
+              {site.markets.map((m) => (
+                <span
+                  key={m}
+                  className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-black/70"
+                >
+                  {m}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div className="py-16">
+            <div className="flex items-end justify-between gap-6">
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                  Products
+                </h2>
+                <p className="mt-2 text-sm text-black/70">
+                  A starter catalogue — add or refine products anytime.
+                </p>
+              </div>
+              <Link
+                href="/products"
+                className="hidden text-sm font-medium text-black/80 hover:text-black md:block"
+              >
+                View all → 
+              </Link>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {products.slice(0, 6).map((p) => (
+                <ProductCard key={p.slug} p={p} />
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-black/10 bg-black/[0.02]">
+        <Container>
+          <div className="py-16 md:py-20">
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              Quality promise (without the fluff)
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm text-black/70 md:text-base">
+              Even without certifications listed today, we can present your process professionally:
+              graded sourcing, quick chilling/freezing, hygienic handling, moisture-controlled packing,
+              and reliable cold-chain dispatch.
+            </p>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  title: "Cold-chain handling",
+                  desc: "Temperature control from processing to dispatch.",
+                },
+                {
+                  title: "Consistent grading",
+                  desc: "Uniform sizing, counts, and carton specifications.",
+                },
+                {
+                  title: "Flexible packaging",
+                  desc: "Bulk cartons, private label readiness, and custom specs.",
+                },
+              ].map((x) => (
+                <div
+                  key={x.title}
+                  className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm"
+                >
+                  <div className="text-base font-semibold">{x.title}</div>
+                  <p className="mt-2 text-sm text-black/70">{x.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-black/10 bg-white p-8 shadow-sm md:p-10">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                <div>
+                  <div className="text-xl font-semibold tracking-tight">
+                    Ready to source seafood for your market?
+                  </div>
+                  <p className="mt-2 text-sm text-black/70">
+                    Share product, quantity, destination port, and packaging preference.
+                  </p>
+                </div>
+                <Link
+                  href="/contact"
+                  className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                >
+                  Contact Sales
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
