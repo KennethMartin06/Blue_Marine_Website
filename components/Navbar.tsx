@@ -19,24 +19,24 @@ export default function Navbar() {
             {site.name}
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm md:flex">
-            {nav.map((i) => (
-              <Link
-                key={i.href}
-                href={i.href}
-                className="text-black/70 hover:text-black transition-colors duration-200"
-              >
-                {i.label}
-              </Link>
-            ))}
-          </nav>
+          <nav className="hidden items-center gap-3 text-sm md:flex">
+              {nav.map((i) => (
+                <Link
+                  key={i.href}
+                  href={i.href}
+                  className="inline-flex items-center justify-center rounded-full px-4 py-2 text-black/70 transition-all duration-200 ease-out hover:-translate-y-1 hover:bg-white hover:text-black hover:shadow-md"
+                >
+                  {i.label}
+                </Link>
+              ))}
+            </nav>
 
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-[color:var(--ocean-700)] px-4 py-2 text-sm font-medium text-white hover:bg-[color:var(--ocean-600)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--teal-400)] focus-visible:ring-offset-2"
-          >
-            Request a Quote
-          </Link>
+            <Link
+    href="/contact"
+    className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[color:var(--ocean-700)] shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:bg-[color:var(--bg2)]"
+  >
+    Request a Quote
+  </Link>
         </div>
       </Container>
     </header>
