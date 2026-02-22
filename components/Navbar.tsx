@@ -24,7 +24,7 @@ export default function Navbar() {
               <Link
                 key={i.href}
                 href={i.href}
-                className="text-black/70 hover:text-black"
+                className="text-black/70 hover:text-black transition-colors duration-200"
               >
                 {i.label}
               </Link>
@@ -33,7 +33,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="rounded-full bg-[color:var(--ocean-700)] px-4 py-2 text-sm font-medium text-white hover:bg-[color:var(--ocean-600)]"
+            className="inline-flex items-center justify-center rounded-full bg-[color:var(--ocean-700)] px-4 py-2 text-sm font-medium text-white hover:bg-[color:var(--ocean-600)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--teal-400)] focus-visible:ring-offset-2"
           >
             Request a Quote
           </Link>

@@ -6,16 +6,17 @@ import ProductCard from "@/components/ProductCard";
 export default function HomePage() {
   return (
     <>
-      <section className="border-b border-black/10 bg-gradient-to-b from-black/[0.04] to-white">
+      <section className="border-b border-black/10">
         <Container>
-          <div className="py-20 md:py-28">
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-xs text-black/70">
-              <span className="h-2 w-2 rounded-full bg-black/60" />
+          <div className="py-16 md:py-24">
+            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs text-black/70 backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[color:var(--teal-500)]" />
               Serving Asian importers & distributors
             </div>
 
             <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
-              Premium seafood exports for Asian markets.
+              Premium seafood exports,{" "}
+              <span className="text-black/70">delivered with consistency.</span>
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-black/70 md:text-lg">
@@ -25,13 +26,14 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                className="inline-flex items-center justify-center rounded-full bg-[color:var(--ocean-700)] px-6 py-3 text-sm font-medium text-white hover:bg-[color:var(--ocean-600)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--teal-400)] focus-visible:ring-offset-2"
               >
                 Request a Quote
               </Link>
+
               <Link
                 href="/products"
-                className="rounded-full border border-black/15 bg-white px-6 py-3 text-sm font-medium text-black hover:bg-black/5"
+                className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white/70 px-6 py-3 text-sm font-medium text-black hover:bg-black/5 transition-colors duration-200"
               >
                 Browse Products
               </Link>
@@ -41,10 +43,26 @@ export default function HomePage() {
               {site.markets.map((m) => (
                 <span
                   key={m}
-                  className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-black/70"
+                  className="rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs text-black/70"
                 >
                   {m}
                 </span>
+              ))}
+            </div>
+
+            <div className="mt-10 grid gap-3 md:grid-cols-3">
+              {[
+                { t: "Cold-chain ready", d: "Handling that supports export timelines." },
+                { t: "Clear specifications", d: "Grades, forms, carton specs on request." },
+                { t: "Asia-focused supply", d: "Built for importer/distributor needs." },
+              ].map((x) => (
+                <div
+                  key={x.t}
+                  className="pop rounded-2xl border border-black/10 bg-white/60 p-6 shadow-sm backdrop-blur hover:shadow-lg"
+                >
+                  <div className="text-sm font-semibold">{x.t}</div>
+                  <div className="mt-2 text-sm text-black/70">{x.d}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -63,11 +81,12 @@ export default function HomePage() {
                   A starter catalogue — add or refine products anytime.
                 </p>
               </div>
+
               <Link
                 href="/products"
-                className="hidden text-sm font-medium text-black/80 hover:text-black md:block"
+                className="hidden text-sm font-medium text-[color:var(--ocean-700)] hover:text-[color:var(--ocean-600)] md:block transition-colors duration-200"
               >
-                View all → 
+                View all →
               </Link>
             </div>
 
@@ -80,11 +99,11 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-t border-black/10 bg-black/[0.02]">
+      <section className="border-t border-black/10">
         <Container>
           <div className="py-16 md:py-20">
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-              Quality promise (without the fluff)
+              Quality, presented simply.
             </h2>
             <p className="mt-3 max-w-3xl text-sm text-black/70 md:text-base">
               Even without certifications listed today, we can present your process professionally:
@@ -94,22 +113,13 @@ export default function HomePage() {
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {[
-                {
-                  title: "Cold-chain handling",
-                  desc: "Temperature control from processing to dispatch.",
-                },
-                {
-                  title: "Consistent grading",
-                  desc: "Uniform sizing, counts, and carton specifications.",
-                },
-                {
-                  title: "Flexible packaging",
-                  desc: "Bulk cartons, private label readiness, and custom specs.",
-                },
+                { title: "Cold-chain handling", desc: "Temperature control from processing to dispatch." },
+                { title: "Consistent grading", desc: "Uniform sizing, counts, and carton specifications." },
+                { title: "Flexible packaging", desc: "Bulk cartons, private label readiness, and custom specs." },
               ].map((x) => (
                 <div
                   key={x.title}
-                  className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm"
+                  className="pop rounded-2xl border border-black/10 bg-white/60 p-6 shadow-sm backdrop-blur hover:shadow-lg"
                 >
                   <div className="text-base font-semibold">{x.title}</div>
                   <p className="mt-2 text-sm text-black/70">{x.desc}</p>
@@ -117,7 +127,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="mt-10 rounded-2xl border border-black/10 bg-white p-8 shadow-sm md:p-10">
+            <div className="pop mt-10 rounded-2xl border border-black/10 bg-white/70 p-8 shadow-sm backdrop-blur hover:shadow-lg md:p-10">
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
                 <div>
                   <div className="text-xl font-semibold tracking-tight">
@@ -127,9 +137,10 @@ export default function HomePage() {
                     Share product, quantity, destination port, and packaging preference.
                   </p>
                 </div>
+
                 <Link
                   href="/contact"
-                  className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                  className="inline-flex items-center justify-center rounded-full bg-[color:var(--ocean-700)] px-6 py-3 text-sm font-medium text-white hover:bg-[color:var(--ocean-600)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--teal-400)] focus-visible:ring-offset-2"
                 >
                   Contact Sales
                 </Link>

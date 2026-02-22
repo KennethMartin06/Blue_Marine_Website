@@ -17,7 +17,7 @@ export default function ProductCard({ p }: { p: Product }) {
           ) : null}
         </div>
 
-        <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-black/70">
+        <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs text-black/70">
           Export
         </span>
       </div>
