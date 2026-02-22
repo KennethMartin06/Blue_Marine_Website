@@ -33,7 +33,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-black/90"
+            className="rounded-full bg-[color:var(--ocean-700)] px-4 py-2 text-sm font-medium text-white hover:bg-[color:var(--ocean-600)]"
           >
             Request a Quote
           </Link>

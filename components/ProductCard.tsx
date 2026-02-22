@@ -5,7 +5,7 @@ export default function ProductCard({ p }: { p: Product }) {
   return (
     <Link
       href={`/products/${p.slug}`}
-      className="group rounded-2xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+      className="pop group rounded-2xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur hover:border-black/15 hover:shadow-lg"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
@@ -26,7 +26,7 @@ export default function ProductCard({ p }: { p: Product }) {
         {p.form.slice(0, 4).map((f) => (
           <span
             key={f}
-            className="rounded-full bg-black/5 px-3 py-1 text-xs text-black/70"
+            className="rounded-full bg-[color:var(--bg2)] px-3 py-1 text-xs text-black/70"
           >
             {f}
           </span>
@@ -35,7 +35,7 @@ export default function ProductCard({ p }: { p: Product }) {
 
       <p className="mt-4 text-sm text-black/70">{p.notes}</p>
 
-      <div className="mt-5 text-sm font-medium text-black">
+      <div className="mt-5 text-sm font-medium text-[color:var(--ocean-700)]">
         View details{" "}
         <span className="inline-block transition group-hover:translate-x-0.5">
           →
